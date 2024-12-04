@@ -1,0 +1,45 @@
+<h2>Star Wars Characters</h2>
+
+<input [(ngModel)]="searchTerm" placeholder="type to filter results" /><button
+  (click)="searchTerm = ''"
+>
+  Clear
+</button>
+
+<p *ngIf="!people.length">No results</p>
+
+<table *ngIf="people.length">
+  <thead>
+    <td>Name</td>
+    <td>Hair Color</td>
+    <td>Eye Color</td>
+    <td>Details</td>
+  </thead>
+
+  <tr *ngFor="let person of people | myfilter : searchTerm">
+    <td>{{ person.name }}</td>
+    <td>{{ person.hair_color }}</td>
+    <td>{{ person.eye_color }}</td>
+    <td><button (click)="showDetails(person.url)">Details</button></td>
+  </tr>
+</table>
+
+@if(detail !== undefined) {
+<div>
+  <h3>Complete Record for {{ detail.name }}:</h3>
+  <ul>
+    <li>Mass: {{ detail.mass }}</li>
+    <li>Birth Year: {{ detail.birth_year }}</li>
+    <li>Gender: {{ detail.gender }}</li>
+    <li>Height: {{ detail.height }}</li>
+    <li>Homeworld: {{ detail.homeworldString }}</li>
+    <li>Skin Color: {{ detail.skin_color }}</li>
+    <li>
+      Films:
+      <ul>
+        <li *ngFor="let film of detail.filmString">{{ film.title }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+}

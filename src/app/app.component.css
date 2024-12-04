@@ -1,0 +1,32 @@
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+}
+thead {
+
+    background-color: #ccc;
+    font-weight: bold;
+}
+tr {
+    border: 0;
+}
+td {
+    border: 0;
+    padding: 5px;
+}
+tr:nth-child(even) {
+    background-color: #eee;
+}
+input {
+    width: 50%;
+    margin: 10px;
+}
+div {
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+h3, ul {
+    margin-left: 10px
+}
